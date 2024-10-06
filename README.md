@@ -1,2 +1,3 @@
-# jellyfin
-jellyfin
+# Jellyfin
+
+Jellyfin
