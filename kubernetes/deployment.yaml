@@ -15,18 +15,9 @@ spec:
       labels:
         app: jellyfin
     spec:
-      affinity:
-        nodeAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-            nodeSelectorTerms:
-              - matchExpressions:
-                  - key: kubernetes.io/hostname
-                    operator: In
-                    values:
-                      - node1
       containers:
         - name: jellyfin
-          image: liukunup/jellyfin:10.10.3
+          image: docker.io/liukunup/jellyfin:10.10.3
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 8096
@@ -75,11 +66,11 @@ spec:
         - name: media
           nfs:
             path: /Multimedia/Media
-            server: quts.homelab.com
+            server: quts.homelab.lan
         - name: config
           persistentVolumeClaim:
             claimName: jellyfin-config
         - name: cache
           persistentVolumeClaim:
             claimName: jellyfin-cache
-      restartPolicy: Always
+      restartPolicy: unless-stopped

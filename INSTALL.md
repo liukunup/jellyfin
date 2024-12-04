@@ -33,11 +33,11 @@ kubectl apply -f kubernetes -n homelab
 - 构建
 
 ```shell
-docker build -t liukunup/jellyfin:latest .
+docker build -t docker.io/liukunup/jellyfin:latest .
 ```
 
 - 推送
 
 ```shell
-docker push liukunup/jellyfin:latest
+docker push docker.io/liukunup/jellyfin:latest
 ```

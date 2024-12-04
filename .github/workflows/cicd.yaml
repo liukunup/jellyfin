@@ -1,4 +1,4 @@
-name: Jellyfin Docker Image CI/CD
+name: Docker Image CI/CD for Jellyfin
 
 on:
   push:

@@ -7,16 +7,18 @@ volumes:
 services:
 
   jellyfin:
-    image: jellyfin/jellyfin:10.10.3
+    image: docker.io/liukunup/jellyfin:10.10.3
     container_name: jellyfin
     hostname: jellyfin
-    user: "1000:1000"
+    user: uid:gid
     network_mode: host
     volumes:
       - jellyfin-config:/config
       - jellyfin-cache:/cache
+      - /path/to/certs:/certs:ro # Optional (see https://jellyfin.org/docs/general/networking/#self-signed-certificate)
+      - /path/to/fonts:/usr/local/share/fonts/custom
       - /path/to/media1:/media1
       - /path/to/media2:/media2:ro
-    restart: always
+    restart: unless-stopped
     environment:
-      - JELLYFIN_PublishedServerUrl=http://example.com
+      - JELLYFIN_PublishedServerUrl=http://jellyfin.homelab.lan
