@@ -8,7 +8,7 @@ on:
       - 'v*'
 
 env:
-  JELLYFIN_VERSION: 10.10.3
+  JELLYFIN_VERSION: 10.10.7
   DOCKER_HUB_REPO: ${{ secrets.DOCKER_HUB_USERNAME }}/jellyfin
 
 jobs:
